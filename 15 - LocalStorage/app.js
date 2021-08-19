@@ -4,7 +4,7 @@ const items = JSON.parse(localStorage.getItem('items')) || [];
 
 function addItem(e) {
     e.preventDefault();
-    const text = (this.querySelector('[name=item]'));
+    const text = (this.querySelector('[name=item]').value);
     const item = {
         text,
         done: false
@@ -20,7 +20,7 @@ function populateList(plates = [], platesList) {
     platesList.innerHTML = plates.map((plate, i) => {
         return `
             <li>
-                <input type="checkbox" id="${i}" data-index="${i}" ${plate.done ? 'checked' : ''}/>
+                <input type="checkbox" id="${i}" data-index=${i} ${plate.done ? 'checked' : ''}/>
                 <label for="items${i}">${plate.text}</label>}
             </li>
         `;
